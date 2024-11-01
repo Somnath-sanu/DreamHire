@@ -5,12 +5,6 @@ import { Job } from "@prisma/client";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
 const getJob = cache(async (slug: string): Promise<Job> => {
   const job = await prisma.job.findFirst({
     where: {
