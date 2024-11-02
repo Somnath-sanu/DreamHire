@@ -72,9 +72,9 @@ export default function MultiStepForm() {
       }
     });
 
-    await new Promise((res) => setTimeout(res, 2000));
+    // await new Promise((res) => setTimeout(res, 2000));
 
-    console.log(values);
+    // console.log(values);
 
     try {
       await createJobPosting(formData);
@@ -88,6 +88,9 @@ export default function MultiStepForm() {
     // console.log({ fields });
 
     const isValid = await trigger(fields as any);
+     // trigger(["type"]) to validate the type field.
+
+
     // console.log({ isValid });
     // console.log({ step: stepRef.current });
 
@@ -129,7 +132,7 @@ export default function MultiStepForm() {
   const formSteps = [
     {
       title: `Job Title`,
-      validation: { title: true },
+      validation: { title: true },  // Field to validate in this step
       component: (
         <FormField
           control={control}
@@ -402,7 +405,7 @@ export default function MultiStepForm() {
     },
     {
       title: "Job Description & Salary",
-      validation: { description: true },
+      validation: { description: true, salary: true },
       component: (
         <div className="space-y-5">
           <FormField

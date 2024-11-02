@@ -6,15 +6,17 @@ interface PageProps {
   title?: string;
   location?: string;
   jobType?: string;
+  page?:string
 }
 
 async function Page({ searchParams }: { searchParams: Promise<PageProps> }) {
-  const { title, location, jobType } = await searchParams;
+  const { title, location, jobType, page } = await searchParams;
 
   const filterValues: JobFilterValues = {
     title,
     location,
     jobType,
+    
   };
 
   // console.log({filterValues});
@@ -25,12 +27,12 @@ async function Page({ searchParams }: { searchParams: Promise<PageProps> }) {
         <h2>
           {" "}
           Your next career move starts here. Discover your dream job today!{" "}
-          </h2>
+        </h2>
         <p className="text-muted-foreground">
           Unlock your potential, land the job you deserve.
         </p>
       </div>
-      <JobResults filterValues={filterValues} />
+      <JobResults filterValues={filterValues} page={page ? parseInt(page) : undefined} />
     </main>
   );
 }

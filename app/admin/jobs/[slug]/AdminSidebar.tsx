@@ -38,7 +38,7 @@ function ApproveSubmissionButton({ jobId }: AdminButtonProps) {
   return (
     <form action={formAction} className="space-y-1">
       <input hidden name="jobId" value={jobId} readOnly />
-      <FormSubmitButton className="block w-full bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">
+      <FormSubmitButton className="w-full bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">
         Approve
       </FormSubmitButton>
       {formState?.error && (
@@ -54,7 +54,7 @@ function DeleteJobButton({ jobId }: AdminButtonProps) {
   return (
     <form action={formAction} className="space-y-1">
       <input hidden name="jobId" value={jobId} readOnly />
-      <FormSubmitButton className=" block w-full bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg">
+      <FormSubmitButton className="w-full bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg">
         Delete
       </FormSubmitButton>
       {formState?.error && (
