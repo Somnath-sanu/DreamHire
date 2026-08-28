@@ -2,7 +2,9 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const { placeholderJobs } = require("./placeholder-data");
 const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+  log: ["query", "info", "warn", "error"],
+});
 
 async function main() {
   await Promise.all(
